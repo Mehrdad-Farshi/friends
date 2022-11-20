@@ -1,9 +1,11 @@
 from bs4 import BeautifulSoup
 import requests
+import os
 base = 'https://sv.dcnm.ir/Serial/Foreign/'
 
 for season in range(1,11):
-    f = open(f'season{season}.txt',"w")
+    os.mkdir(f'season{season}')
+    f = open(f'./season{season}/season{season}.txt',"w")
     # there is a  problem when range reaches to 10 
     url = f'https://sv.dcnm.ir/Serial/Foreign/?dir=Friends/720/S{f"0{season}" if season<10 else season}'
     page = requests.get(url).text
