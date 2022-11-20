@@ -3,8 +3,9 @@ import requests
 base = 'https://sv.dcnm.ir/Serial/Foreign/'
 
 for season in range(1,11):
-    f = open(f'season{season}',"w")
-    url = f'https://sv.dcnm.ir/Serial/Foreign/?dir=Friends/720/S0{season}'
+    f = open(f'season{season}.txt',"w")
+    # there is a  problem when range reaches to 10 
+    url = f'https://sv.dcnm.ir/Serial/Foreign/?dir=Friends/720/S{f"0{season}" if season<10 else season}'
     page = requests.get(url).text
     soup = BeautifulSoup(page,features="html5lib")
     links = soup.find_all('a',class_='clearfix')
@@ -12,3 +13,5 @@ for season in range(1,11):
         print(f"{base}{link['href']}\n")
         f.write(f"{base}{link['href']}\n")
     f.close()
+    
+    
