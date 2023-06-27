@@ -1,10 +1,12 @@
 pipeline {
     agent any
+    
     stages {
-        stage("Build")
-        steps{
+        stage('Run Python Script') {
+            steps {
             sh "rm -rf friends"
             sh "git clone https://github.com/Mehrdad-Farshi/friends"
+            }
         }
     }
 }
