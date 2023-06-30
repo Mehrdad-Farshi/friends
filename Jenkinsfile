@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+    pollSCM('* * * * *')
+    }
     environment{
         BUILDER_NAME = 'mehrdad'
     }
