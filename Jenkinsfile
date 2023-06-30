@@ -13,6 +13,8 @@ pipeline {
             // sh "git clone https://github.com/Mehrdad-Farshi/friends"
             git url: 'https://github.com/Mehrdad-Farshi/friends.git', branch: 'master'
             echo "builder name : ${BUILDER_NAME} BUILD ID : ${env.BUILD_ID}, JENKINS URL : ${env.JENKINS_URL}"
+            echo " some message after adding polling scm"
+
             }
         }
     }
